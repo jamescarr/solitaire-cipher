@@ -88,17 +88,11 @@ end
 describe 'SolitaireCipher'
   it 'should produce keystream values'
     var cipher = new SolitaireCipher();
-
-    cipher.nextKeystreamValue().should.eql 'D'
-    cipher.nextKeystreamValue().should.eql 'W'
-    cipher.nextKeystreamValue().should.eql 'J'
-    cipher.nextKeystreamValue().should.eql ''
-    cipher.nextKeystreamValue().should.eql 'X'
-    cipher.nextKeystreamValue().should.eql 'H'
-    cipher.nextKeystreamValue().should.eql 'Y'
-    cipher.nextKeystreamValue().should.eql 'R'
-    cipher.nextKeystreamValue().should.eql 'F'
-    cipher.nextKeystreamValue().should.eql 'D'
-    cipher.nextKeystreamValue().should.eql 'G'
+    
+    var expectedKeys = ['D','W','J','','X','H','Y','R','F','D','G'];
+    for(var index in expectedKeys){
+      cipher.nextKeystreamValue().should.eql expectedKeys[index]
+    }
+   
   end
 end  
